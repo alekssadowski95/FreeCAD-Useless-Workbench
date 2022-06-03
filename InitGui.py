@@ -47,8 +47,8 @@ class UselessWorkbench(Workbench):
         FreeCADGui.addCommand('Useless_Circle_Pipe_Along_Path_Command', commands.UselessCirclePipeAlongPathCommand())
         FreeCADGui.addCommand('Useless_Rectangle_Grid_Command', commands.UselessRectangleGridCommand())
         
-        # A list of command names created in the line above
-        self.list = ["Useless_Box_Command"
+        # A list of command names created above
+        self.uselesscommands = ["Useless_Box_Command"
             , "UselessBox_On_Point_Command"
             , "Useless_Cylinder_Command"
             , "Useless_Cylinder_Through_Line_Command"
@@ -56,11 +56,11 @@ class UselessWorkbench(Workbench):
             , "Useless_Rectangle_Pipe_Along_Path_Command"
             , "Useless_Circle_Pipe_Along_Path_Command"
             , "Useless_Rectangle_Grid_Command"] 
-        self.partcommands = ["Part_Cylinder"]
-        self.appendToolbar("Useless Commands", self.list) # creates a new toolbar with your commands
-        self.appendToolbar("Part Commands", self.partcommands)
-        self.appendMenu("Useless", self.list) # creates a new menu
-        self.appendMenu("Part", self.partcommands)
+        self.uselesscommands = ["Part_Cylinder"]
+        self.appendToolbar("Useless Commands", self.uselesscommands) # creates a new toolbar with useless commands
+        self.appendToolbar("Part Commands", self.partcommands) # creates a new toolbar with part commands
+        self.appendMenu("Useless", self.uselesscommands) # creates a new menu with useless commands
+        self.appendMenu("Part", self.partcommands) # creates a new menu with part commands
 
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
