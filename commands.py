@@ -20,5 +20,6 @@ class UselessBoxCommand:
         """Return True when the command should be active or False when it should be disabled (greyed)."""
         return True
 
+import FreeCADGui
 # The command must be "registered" with a unique name by calling its class.
 FreeCADGui.addCommand('Useless_Box_Command', UselessBoxCommand())

@@ -22,7 +22,7 @@
 # *   USA                                                                   *
 # *                                                                         *
 # ***************************************************************************/
-
+import FreeCAD
 FreeCAD.addImportType("My own format (*.own)", "importOwn")
 FreeCAD.addExportType("My own format (*.own2)", "importOwn2")
 print("Initializing Useless workbench.")

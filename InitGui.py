@@ -2,7 +2,42 @@ class UselessWorkbench(Workbench):
 
     MenuText = "Useless Workbench"
     ToolTip = "A description of the Useless workbench"
-    Icon = """paste here the contents of a 16x16 xpm icon"""
+    Icon = """  
+            /* XPM */
+            static char *XPM_example[] = {
+            "24 20 3 1 12 10 XPMEXT",
+            "  c None",
+            ". c #0000FF",
+            "+ c #FF0000",
+            "                        ",
+            "    ..                  ",
+            "   ....                 ",
+            "  ......++++++++        ",
+            " .........+++++++       ",
+            " ..........+++++++      ",
+            " ............++++++     ",
+            " .............++++++    ",
+            "  ..............++++    ",
+            "   +.............+++    ",
+            "   ++.............++    ",
+            "   +++.............+    ",
+            "   +++++.............   ",
+            "   ++++++.............. ",
+            "   ++++++++............ ",
+            "   +++++++++........... ",
+            "    +++++++++.........  ",
+            "     ++++++++++.......  ",
+            "      ++++++++++.....   ",
+            "       +++++++++ ...    ",
+            "XPMEXT author Anonymous",
+            "XPMEXT address",
+            "Beispielweg 42a",
+            "0815 Beispielstadt",
+            "LUMMERLAND",
+            "mailto:anonymous@beispielstadt.lum",
+            "XPMENDEXT"
+            };
+            """
 
     def Initialize(self):
         """This function is executed when the workbench is first activated.
@@ -31,6 +66,7 @@ class UselessWorkbench(Workbench):
         # This function is mandatory if this is a full Python workbench
         # This is not a template, the returned string should be exactly "Gui::PythonWorkbench"
         return "Gui::PythonWorkbench"
-       
+
+import FreeCADGui       
 FreeCADGui.addWorkbench(UselessWorkbench())
 print("Initializing Useless workbench GUI.")
