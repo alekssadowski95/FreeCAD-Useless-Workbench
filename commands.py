@@ -25,7 +25,7 @@ import os
 
 import FreeCADGui
 
-from widgets import UselessBoxWidget, UselessBoxOnPointWidget, UselessCylinderWidget
+from widgets import UselessBoxWidget, UselessBoxOnPointWidget, UselessCylinderWidget, UselessCylinderThroughLineWidget, UselessCirclePipeAlongPathWidget, UselessSquarePipeAlongPathWidget, UselessRectanglePipeAlongPathWidget, UselessRectangleGridWidget
 
 class UselessBoxCommand:
     """Explanation of the command."""
@@ -127,7 +127,13 @@ class UselessCylinderThroughLineCommand:
 
     def Activated(self):
         """Run the following code when the command is activated (button press)."""
-        print("UselessCylinderThroughLine activated")
+        main_window = FreeCADGui.getMainWindow()
+        useless_box_dialog = UselessCylinderThroughLineWidget(main_window)
+        useless_box_dialog.show()
+        if useless_box_dialog.exec_():
+            print('Success')
+        else:
+            print('Cancel')
 
     def IsActive(self):
         """Return True when the command should be active or False when it should be disabled (greyed)."""
@@ -149,7 +155,13 @@ class UselessSquarePipeAlongPathCommand:
 
     def Activated(self):
         """Run the following code when the command is activated (button press)."""
-        print("UselessSquarePipeAlongPath activated")
+        main_window = FreeCADGui.getMainWindow()
+        useless_box_dialog = UselessSquarePipeAlongPathWidget(main_window)
+        useless_box_dialog.show()
+        if useless_box_dialog.exec_():
+            print('Success')
+        else:
+            print('Cancel')
 
     def IsActive(self):
         """Return True when the command should be active or False when it should be disabled (greyed)."""
@@ -171,7 +183,13 @@ class UselessRectanglePipeAlongPathCommand:
 
     def Activated(self):
         """Run the following code when the command is activated (button press)."""
-        print("UselessRectanglePipeAlongPath activated")
+        main_window = FreeCADGui.getMainWindow()
+        useless_box_dialog = UselessRectanglePipeAlongPathWidget(main_window)
+        useless_box_dialog.show()
+        if useless_box_dialog.exec_():
+            print('Success')
+        else:
+            print('Cancel')
 
     def IsActive(self):
         """Return True when the command should be active or False when it should be disabled (greyed)."""
@@ -193,7 +211,13 @@ class UselessCirclePipeAlongPathCommand:
 
     def Activated(self):
         """Run the following code when the command is activated (button press)."""
-        print("UselessCirclePipeAlongPath activated")
+        main_window = FreeCADGui.getMainWindow()
+        useless_box_dialog = UselessCirclePipeAlongPathWidget(main_window)
+        useless_box_dialog.show()
+        if useless_box_dialog.exec_():
+            print('Success')
+        else:
+            print('Cancel')
 
     def IsActive(self):
         """Return True when the command should be active or False when it should be disabled (greyed)."""
@@ -215,7 +239,13 @@ class UselessRectangleGridCommand:
 
     def Activated(self):
         """Run the following code when the command is activated (button press)."""
-        print("UselessRectangleGrid activated")
+        main_window = FreeCADGui.getMainWindow()
+        useless_box_dialog = UselessRectangleGridWidget(main_window)
+        useless_box_dialog.show()
+        if useless_box_dialog.exec_():
+            print('Success')
+        else:
+            print('Cancel')
 
     def IsActive(self):
         """Return True when the command should be active or False when it should be disabled (greyed)."""
