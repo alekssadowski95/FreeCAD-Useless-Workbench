@@ -46,8 +46,7 @@ class UselessWorkbench(Workbench):
         import commands # import here all the needed files that create your FreeCAD commands
         self.list = ["Useless_Box_Command"] # A list of command names created in the line above
         self.appendToolbar("Useless Commands", self.list) # creates a new toolbar with your commands
-        self.appendMenu("Useless New Menu", self.list) # creates a new menu
-        self.appendMenu(["An existing Menu", "My submenu"], self.list) # appends a submenu to an existing menu
+        self.appendMenu("Useless", self.list) # creates a new menu
 
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
