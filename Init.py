@@ -1,7 +1,7 @@
 """FreeCAD init script of Useless module"""
 
 # ***************************************************************************
-# *   Copyright (c) 2022 Aleksander Sadowski  www.alsado.de                 *   
+# *   Copyright (c) 2022 Aleksander Sadowski  www.alsado.de                 *
 # *                                                                         *
 # *   This file is part of the FreeCAD CAx development system.              *
 # *                                                                         *
@@ -22,7 +22,9 @@
 # *   USA                                                                   *
 # *                                                                         *
 # ***************************************************************************/
+
 import FreeCAD
+
 FreeCAD.addImportType("My own format (*.own)", "importOwn")
 FreeCAD.addExportType("My own format (*.own2)", "importOwn2")
 print("Initializing Useless workbench.")

@@ -1,52 +1,66 @@
+# ***************************************************************************
+# *   Copyright (c) 2022 Aleksander Sadowski  www.alsado.de                 *
+# *                                                                         *
+# *   This file is part of the FreeCAD CAx development system.              *
+# *                                                                         *
+# *   This program is free software; you can redistribute it and/or modify  *
+# *   it under the terms of the GNU Lesser General Public License (LGPL)    *
+# *   as published by the Free Software Foundation; either version 2 of     *
+# *   the License, or (at your option) any later version.                   *
+# *   for detail see the LICENCE text file.                                 *
+# *                                                                         *
+# *   FreeCAD is distributed in the hope that it will be useful,            *
+# *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+# *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+# *   GNU Lesser General Public License for more details.                   *
+# *                                                                         *
+# *   You should have received a copy of the GNU Library General Public     *
+# *   License along with FreeCAD; if not, write to the Free Software        *
+# *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  *
+# *   USA                                                                   *
+# *                                                                         *
+# ***************************************************************************/
+
+import os
+
+import FreeCAD
+import FreeCADGui
+import PartGui 
+
 class UselessWorkbench(Workbench):
 
     MenuText = "Useless Workbench"
     ToolTip = "A description of the Useless workbench"
-    Icon = """  
-            /* XPM */
-            static char *XPM_example[] = {
-            "24 20 3 1 12 10 XPMEXT",
-            "  c None",
-            ". c #0000FF",
-            "+ c #FF0000",
-            "                        ",
-            "    ..                  ",
-            "   ....                 ",
-            "  ......++++++++        ",
-            " .........+++++++       ",
-            " ..........+++++++      ",
-            " ............++++++     ",
-            " .............++++++    ",
-            "  ..............++++    ",
-            "   +.............+++    ",
-            "   ++.............++    ",
-            "   +++.............+    ",
-            "   +++++.............   ",
-            "   ++++++.............. ",
-            "   ++++++++............ ",
-            "   +++++++++........... ",
-            "    +++++++++.........  ",
-            "     ++++++++++.......  ",
-            "      ++++++++++.....   ",
-            "       +++++++++ ...    ",
-            "XPMEXT author Anonymous",
-            "XPMEXT address",
-            "Beispielweg 42a",
-            "0815 Beispielstadt",
-            "LUMMERLAND",
-            "mailto:anonymous@beispielstadt.lum",
-            "XPMENDEXT"
-            };
-            """
+    Icon = os.path.join(FreeCAD.getUserAppDataDir(), "Mod", "Useless", "circle-blue.svg")
 
     def Initialize(self):
         """This function is executed when the workbench is first activated.
         It is executed once in a FreeCAD session followed by the Activated function.
         """
-        import commands # import here all the needed files that create your FreeCAD commands
-        self.list = ["Useless_Box_Command"] # A list of command names created in the line above
+        import commands
+        FreeCADGui.addCommand('Useless_Box_Command', commands.UselessBoxCommand())
+        FreeCADGui.addCommand('UselessBox_On_Point_Command', commands.UselessBoxOnPointCommand())
+        FreeCADGui.addCommand('Useless_Cylinder_Command', commands.UselessCylinderCommand())
+        FreeCADGui.addCommand('Useless_Cylinder_Through_Line_Command', commands.UselessCylinderThroughLineCommand())
+        FreeCADGui.addCommand('Useless_Square_Pipe_Along_Path_Command', commands.UselessSquarePipeAlongPathCommand())
+        FreeCADGui.addCommand('Useless_Rectangle_Pipe_Along_Path_Command', commands.UselessRectanglePipeAlongPathCommand())
+        FreeCADGui.addCommand('Useless_Circle_Pipe_Along_Path_Command', commands.UselessCirclePipeAlongPathCommand())
+        FreeCADGui.addCommand('Useless_Rectangle_Grid_Command', commands.UselessRectangleGridCommand())
+        
+        # A list of command names created in the line above
+        self.list = ["Useless_Box_Command"
+            , "UselessBox_On_Point_Command"
+            , "Useless_Cylinder_Command"
+            , "Useless_Cylinder_Through_Line_Command"
+            , "Useless_Square_Pipe_Along_Path_Command"
+            , "Useless_Rectangle_Pipe_Along_Path_Command"
+            , "Useless_Circle_Pipe_Along_Path_Command"
+            , "Useless_Rectangle_Grid_Command"] 
+        self.partcommands = ["Part_Cylinder"]
         self.appendToolbar("Useless Commands", self.list) # creates a new toolbar with your commands
+        self.appendToolbar("Part Commands", self.partcommands)
         self.appendMenu("Useless", self.list) # creates a new menu
+        self.appendMenu("Part", self.partcommands)
 
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
@@ -64,8 +78,6 @@ class UselessWorkbench(Workbench):
     def GetClassName(self): 
         # This function is mandatory if this is a full Python workbench
         # This is not a template, the returned string should be exactly "Gui::PythonWorkbench"
-        return "Gui::PythonWorkbench"
+        return "Gui::PythonWorkbench"   
 
-import FreeCADGui       
 FreeCADGui.addWorkbench(UselessWorkbench())
-print("Initializing Useless workbench GUI.")
