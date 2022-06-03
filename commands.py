@@ -23,6 +23,10 @@
 
 import os
 
+import FreeCADGui
+
+from widgets import UselessBoxWidget, UselessBoxOnPointWidget, UselessCylinderWidget
+
 class UselessBoxCommand:
     """Explanation of the command."""
 
@@ -39,7 +43,13 @@ class UselessBoxCommand:
 
     def Activated(self):
         """Run the following code when the command is activated (button press)."""
-        print("UselessBox activated")
+        main_window = FreeCADGui.getMainWindow()
+        useless_box_dialog = UselessBoxWidget(main_window)
+        useless_box_dialog.show()
+        if useless_box_dialog.exec_():
+            print('Success')
+        else:
+            print('Cancel')
 
     def IsActive(self):
         """Return True when the command should be active or False when it should be disabled (greyed)."""
@@ -61,7 +71,13 @@ class UselessBoxOnPointCommand:
 
     def Activated(self):
         """Run the following code when the command is activated (button press)."""
-        print("UselessBoxOnPoint activated")
+        main_window = FreeCADGui.getMainWindow()
+        useless_box_dialog = UselessBoxOnPointWidget(main_window)
+        useless_box_dialog.show()
+        if useless_box_dialog.exec_():
+            print('Success')
+        else:
+            print('Cancel')
 
     def IsActive(self):
         """Return True when the command should be active or False when it should be disabled (greyed)."""
@@ -83,7 +99,13 @@ class UselessCylinderCommand:
 
     def Activated(self):
         """Run the following code when the command is activated (button press)."""
-        print("UselessCylinder activated")
+        main_window = FreeCADGui.getMainWindow()
+        useless_box_dialog = UselessCylinderWidget(main_window)
+        useless_box_dialog.show()
+        if useless_box_dialog.exec_():
+            print('Success')
+        else:
+            print('Cancel')
 
     def IsActive(self):
         """Return True when the command should be active or False when it should be disabled (greyed)."""

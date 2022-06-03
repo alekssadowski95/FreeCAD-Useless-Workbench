@@ -56,7 +56,7 @@ class UselessWorkbench(Workbench):
             , "Useless_Rectangle_Pipe_Along_Path_Command"
             , "Useless_Circle_Pipe_Along_Path_Command"
             , "Useless_Rectangle_Grid_Command"] 
-        self.uselesscommands = ["Part_Cylinder"]
+        self.partcommands = ["Part_Cylinder"]
         self.appendToolbar("Useless Commands", self.uselesscommands) # creates a new toolbar with useless commands
         self.appendToolbar("Part Commands", self.partcommands) # creates a new toolbar with part commands
         self.appendMenu("Useless", self.uselesscommands) # creates a new menu with useless commands
