@@ -1,8 +1,8 @@
+import os
+
 from PySide2.QtWidgets import QDialog, QDialogButtonBox, QDoubleSpinBox, QSpinBox, QPushButton
 
 from uiloader import loadUi
-
-import os
 
 
 class UselessBoxWidget(QDialog):
